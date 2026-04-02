@@ -31,7 +31,7 @@ class Recommender:
         if song.genre == user.favorite_genre:
             score += 2.0
         if song.mood == user.favorite_mood:
-            score += 1.0
+            score += 2.0
         score += 1 - abs(song.energy - user.target_energy)
         return score
 
@@ -74,7 +74,7 @@ def score_song(user_prefs: Dict, song: Dict) -> float:
     if song["genre"] == user_prefs.get("genre"):
         score += 2.0
     if song["mood"] == user_prefs.get("mood"):
-        score += 1.0
+        score += 2.0
     score += 1 - abs(song["energy"] - user_prefs.get("energy", 0.5))
     return score
 
